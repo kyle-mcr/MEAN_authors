@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title> Add New Author </title>
+</head>
+<style>
+    .form-group {
+        width: 50%;
+        margin-left: 5%;
+    }
+
+    .button {
+        background-color: greenyellow;
+        padding: 3px 15px;
+        border: 1px black solid;
+        border-radius: 10px;
+        box-shadow: 0 8px 6px -6px black;
+        margin-top: 5px;
+    }
+</style>
+
+<body>
+
+    <form>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Name</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" name="myobj.name"
+                [(ngModel)]="myobj.name" placeholder="name">
+            <button class="button" (click)="submitForm()">Submit</button>
+        </div>
+    </form>
+
+</body>
+
+</html>
