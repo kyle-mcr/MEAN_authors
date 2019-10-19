@@ -34,4 +34,12 @@ export class ShowComponent implements OnInit {
       this.getAuthor(this.id);
     })
   }
+
+  deleteObject(x) {
+    let observable = this.http.delete(this.myobj);
+    observable.subscribe(data => {
+      console.log(data)
+      this.router.navigate(['/'])
+    })
+  }
 }

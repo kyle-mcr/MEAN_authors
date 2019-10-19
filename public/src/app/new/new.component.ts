@@ -8,8 +8,8 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./new.component.css']
 })
 export class NewComponent implements OnInit {
-  myobj = { name: '' }
-
+  myobj = { name: '', qty: '', price: '' }
+  errors = [];
   constructor(
     private http:HttpService,
     private router:Router,
@@ -18,12 +18,34 @@ export class NewComponent implements OnInit {
   ngOnInit() {
   }
 
-  submitForm(){
-    console.log(this.myobj);
-    let observable = this.http.create(this.myobj);
-    observable.subscribe(data=> {
-      console.log(data);
-      this.router.navigate(['/'])
-    })
+submitForm() {
+  const observable = this.http.create(this.myobj);
+  observable.subscribe((data: any) => {
+    if (data.message === 'fail') {
+      this.errors = this.errorHelper(data.err.errors);
+      console.log(this.errors);
+    } else {
+      this.errors = [];
+      this.myobj = {
+        name: '',
+        qty: '',
+        price: ''
+      };
+     
+      this.router.navigate(['/']);
+    }
+  });
+}
+
+errorHelper(errorMessage: any) {
+  const errorArr = [];
+  // tslint:disable-next-line:forin
+  for (const error in errorMessage) {
+    console.log(error);
+    errorArr.push({path: errorMessage[error].path, message: errorMessage[error].message});
   }
+
+  return errorArr;
+}
+
 }

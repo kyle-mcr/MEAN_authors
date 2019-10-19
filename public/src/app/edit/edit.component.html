@@ -11,16 +11,55 @@
 </head>
 
 <body>
+    <div class="container">
+            <div *ngFor="let error of errors">
+                    <p>{{ error.path }}: {{ error.message }}</p>
+                  </div>
+        <h1>Update Details</h1>
+        <form>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required minlength="4"
+                    [(ngModel)]="myobj.name" placeholder="name" #name="ngModel">
 
-    <form>
-      <div class="form-group">
-        <label for="formGroupExampleInput">Title</label>
-        <input type="text" class="form-control" id="formGroupExampleInput"  name="myobj.name" [(ngModel)]="myobj.name" placeholder="Name">
-            <button class="button" (click)="submitForm()">Submit</button>
-            <a class="button" [routerLink]="['/']">Go Back</a>
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                    <div *ngIf="name.errors.required">
+                        Name is required.
+                    </div>
+                    <div *ngIf="name.errors.minlength">
+                        Name must be at least 4 characters long.
+                    </div>
+                </div>
+                <label for="formGroupExampleInput">Qty</label>
+                <input type="text" class="form-control" id="qty" name="qty" required minlength="1"
+                    [(ngModel)]="myobj.qty" placeholder="qty" #qty="ngModel">
+
+                <div *ngIf="qty.invalid && (qty.dirty || qty.touched)" class="alert alert-danger">
+                    <div *ngIf="qty.errors.required">
+                        A Qty is required.
+                    </div>
+                    <div *ngIf="qty.errors.minlength">
+                        Quantity must be at least 1 character long.
+                    </div>
+                </div>
+                <label for="formGroupExampleInput">Price</label>
+                <input type="text" class="form-control" id="price" name="price" required minlength="1"
+                    [(ngModel)]="myobj.price" placeholder="price" #price="ngModel">
+
+                <div *ngIf="price.invalid && (price.dirty || price.touched)" class="alert alert-danger">
+                    <div *ngIf="price.errors.required">
+                        A Price is required.
+                    </div>
+                    <div *ngIf="name.errors.minlength">
+                        Price must be at least 1 character long.
+                    </div>
+                </div>
+                <button class="button1" (click)="submitForm()" [disabled]="myobj.price.length<0"
+                    [disabled]="myobj.qty.length<0" [disabled]="myobj.name.length<3">Submit</button>
+                <a class="button" [routerLink]="['/']">Go Back</a>
             </div>
-    </form>
-
+        </form>
+    </div>
 </body>
 
 </html>

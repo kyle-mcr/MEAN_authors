@@ -8,18 +8,18 @@ export class HttpService {
 
   constructor(private http:HttpClient) { }
   findAll(){
-    return this.http.get('/api/findAll')
+    return this.http.get('/products/findAll')
   }
   findOne(id){
-    return this.http.get(`/api/findOne/${id}`)
+    return this.http.get(`/products/findOne/${id}`)
   }
   create(myobj){
-    return this.http.post('/api/create', myobj )
+    return this.http.post('/products/create', myobj )
   }
   edit(myobj){
-    return this.http.put(`/api/edit/${myobj._id}`, myobj)
+    return this.http.put(`/products/edit/${myobj._id}`, myobj)
   }
   delete(myobj){
-    return this.http.delete(`/api/delete/${myobj._id}`)
+    return this.http.delete(`/products/delete/${myobj._id}`)
   }
 }

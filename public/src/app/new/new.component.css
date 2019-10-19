@@ -1,13 +1,45 @@
-.form-group {
-    width: 50%;
-    margin-left: 5%;
+.form-group{
+    width: 80%;
+    margin-left:5%;
 }
-
-.button {
+.button{
     background-color: greenyellow;
-    padding: 3px 15px;
+    padding:3px 15px;
     border: 1px black solid;
     border-radius: 10px;
     box-shadow: 0 8px 6px -6px black;
-    margin-top: 5px;
+    margin-top:5px;
+}
+.button {
+    color: white;
+    background: rgb(243,221,197);
+    background: linear-gradient(0deg, rgba(243,221,197,1) 0%, rgba(72,93,107,1) 100%);
+    padding:5px 15px;
+    border: 1px black solid;
+    border-radius: 6px;
+    box-shadow: 0 8px 6px -6px black;
+    margin-left:5px;
+    margin-top: 8px;
+    
+}
+.button1{
+    color: white;
+    background: rgb(0, 255, 106);
+    background: linear-gradient(0deg, rgb(0, 146, 0) 0%, rgb(255, 255, 255) 100%);
+    padding:3px 15px;
+    border: 1px black solid;
+    border-radius: 6px;
+    box-shadow: 0 8px 6px -6px black;
+    margin-top: 8px;
+}
+.container {
+    width: 50%;
+    height: 50%;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: rgb(228, 228, 228);
+    box-shadow: 0 8px 6px -6px black;
+    padding-bottom: 10px;
+    padding-top:3px;
+    margin-left: 5%;
 }

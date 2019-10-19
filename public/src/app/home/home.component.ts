@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   myUrl = ''
-  myobjects: any = [{ name: "" }];
+  myobjects: any = [{ name: "", qty: "", price: "" }];
   show: any;
   constructor(
     private http: HttpService,

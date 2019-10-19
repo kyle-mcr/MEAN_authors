@@ -8,9 +8,9 @@ import { NewComponent } from './new/new.component';
 
 const routes: Routes = [
   {path:'', pathMatch:'full', component:HomeComponent},
-  {path:'new', component:NewComponent},
-  {path:'edit/:id', component:EditComponent},
-  {path:'show/:id', component:ShowComponent},
+  {path:'products/new', component:NewComponent},
+  {path:'products/edit/:id', component:EditComponent},
+  {path:'products/show/:id', component:ShowComponent},
 
 
 ];

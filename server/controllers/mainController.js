@@ -16,15 +16,13 @@ module.exports = {
     create: (req, res) => {
         console.log("line 17", req.body)
         PrimaryObject.create(req.body)
-            .then(data => {
-                console.log(data)
-                res.json(data)})
-            .catch(err => res.json(err));
+        .then(data => res.json({message: 'success', data: data}))
+        .catch(err => res.json({message: 'fail', err: err}))
     },
     update_by_id: (req, res) => {
-        PrimaryObject.findByIdAndUpdate({ _id: req.params.id }, req.body)
-            .then(data => res.json(data))
-            .catch(err => res.json(err));
+        PrimaryObject.findByIdAndUpdate({ _id: req.params.id }, req.body, {runValidators: true})
+        .then(data => res.json({message: 'success', data: data}))
+        .catch(err => res.json({message: 'fail', err: err}))
     },
     delete_by_id: (req, res) => {
         PrimaryObject.findByIdAndDelete({ _id: req.params.id })

@@ -1,23 +1,55 @@
 .table {
-    width: 50%;
+    width: 90%;
     margin-left: 5%;
+    border: 1px solid black;
+    margin-top: 13px;
 }
-.show{
-    margin-left: 10%;
+.button1, a{
+    color: white;
+    background: rgb(199,218,202);
+    background: linear-gradient(0deg, rgba(199,218,202,1) 0%, rgba(75,99,112,1) 100%);
+    padding:7px 15px;
+    border: 1px black solid;
+    border-radius: 6px;
+    margin-left: 78%;
+    box-shadow: 0 8px 6px -6px black;
+    display: inline-block;
+    vertical-align: top;
+
 }
-.button{
-    background-color: greenyellow;
+.button2{
+    color: white;
+    background: rgb(243,221,197);
+    background: linear-gradient(0deg, rgba(243,221,197,1) 0%, rgba(72,93,107,1) 100%);
     padding:3px 15px;
     border: 1px black solid;
-    border-radius: 10px;
-    margin-left: 5%;
+    border-radius: 6px;
     box-shadow: 0 8px 6px -6px black;
+
 }
-.button1{
-    background-color: rgb(255, 0, 0);
+.button3{
+    color: white;
+    background: rgb(231,195,195);
+    background: linear-gradient(0deg, rgba(231,195,195,1) 0%, rgba(72,92,107,1) 100%);
     padding:3px 15px;
     border: 1px black solid;
-    border-radius: 10px;
-    margin-left: 5%;
+    border-radius: 6px;
     box-shadow: 0 8px 6px -6px black;
+    margin-left:6px;
+
+}
+td, tr, tbody, .thread-light {
+    border: 1px solid black;
+}
+.container {
+    border: 1px solid black;
+    width: 70%;
+    margin-left: 5%;
+    border: 1px solid black;
+    margin-top:5px;
+
+}
+h1{
+    display: inline-block;
+    vertical-align: top;
 }

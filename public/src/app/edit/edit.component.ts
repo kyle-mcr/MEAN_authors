@@ -11,6 +11,7 @@ import { ThrowStmt } from '@angular/compiler';
 export class EditComponent implements OnInit {
   myobj: any;
   id: any;
+  errors = [];
   constructor(
     private http: HttpService,
     private router: Router,
@@ -20,7 +21,7 @@ export class EditComponent implements OnInit {
     this.getData();
     this.myobj = { name: '' };
   }
-  getAuthor(id) {
+  getDetails (id) {
       let observable2 = this.http.findOne(id);
       observable2.subscribe(data => {
         this.myobj = data;
@@ -30,15 +31,38 @@ export class EditComponent implements OnInit {
 getData() {
   let observable = this.route.params.subscribe(data => {
     this.id = data['id'];
-    this.getAuthor(this.id);
+    this.getDetails(this.id);
   })
 }
 
 submitForm() {
-      let observable = this.http.edit(this.myobj);
-      observable.subscribe(data => {
-        console.log(data);
-        this.router.navigate(['/'])
-      })
+  const observable = this.http.edit(this.myobj);
+  observable.subscribe((data: any) => {
+    if (data.message === 'fail') {
+      this.errors = this.errorHelper(data.err.errors);
+      console.log(this.errors);
+    } else {
+      this.errors = [];
+      this.myobj = {
+        name: '',
+        qty: '',
+        price: ''
+      };
+     
+      this.router.navigate(['/']);
     }
+  });
+}
+
+errorHelper(errorMessage: any) {
+  const errorArr = [];
+  // tslint:disable-next-line:forin
+  for (const error in errorMessage) {
+    console.log(error);
+    errorArr.push({path: errorMessage[error].path, message: errorMessage[error].message});
+  }
+
+  return errorArr;
+}
+
 }

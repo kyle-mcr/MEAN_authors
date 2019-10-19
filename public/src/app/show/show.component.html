@@ -12,10 +12,14 @@
 
 <body>
     <div class="container">
+        <h1>Product Details</h1>
     <div *ngIf='myobj' class="show">
         <td>Name: {{myobj.name}}</td><br>
+        <td>Qty: {{myobj.qty}}</td><br>
+        <td>Price: {{myobj.price}}</td><br>
     </div>
     <a class="button" [routerLink]="['/']">Go Back</a>
+    <button class="button1" (click)="deleteObject(myobj.id)">Delete</button>
 </div>
 </body>
 
